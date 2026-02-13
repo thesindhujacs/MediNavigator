@@ -1,0 +1,114 @@
+/* Reset some default styles */
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    padding: 10px 0;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+nav a:hover {
+    background: #555;
+    border-radius: 5px;
+}
+
+/* Main section */
+.about-section {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in;
+}
+
+.intro {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in;
+}
+
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.description, .team, .thanks {
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in;
+}
+
+.mission-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.mission-list li {
+    background: #333;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    animation: slideIn 1s ease-out;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}

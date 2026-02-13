@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login | MediNavigator</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1 style="color: #ffffff;">MediNavigator - Patient Login</h1>
+        </div>
+    </header>
+
+    <section class="login-container">
+        <h2>Patient Login</h2>
+        <form id="patient-login-form" method="post" onsubmit="return validateForm()">
+            <label for="patient-name">Patient Name:</label>
+            <input type="text" id="patient-name" name="patient-name" placeholder="Enter your name" required>
+            
+            <label for="patient-email">Email ID:</label>
+            <input type="email" id="patient-email" name="patient-email" placeholder="Enter your email" required>
+            
+            <label for="patient-phone">Phone Number:</label>
+            <input type="tel" id="patient-phone" name="patient-phone" placeholder="Enter your phone number" required pattern="^\d{10}$" title="Please enter a valid 10-digit phone number">
+
+            <button type="submit">Login</button>
+        </form>
+        <p class="signup-link">Don't have an account? <a href="patient-signup.html">Sign up here</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MediNavigator. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("patient-name").value;
+            const email = document.getElementById("patient-email").value;
+            const phone = document.getElementById("patient-phone").value;
+
+            // Retrieve stored user details
+            const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+
+            if (!storedUser || !storedUser.isSignedUp) {
+                alert("No account found! Please sign up first.");
+                return false;
+            }
+
+            // Check if entered details match stored details
+            if (name === storedUser.name && email === storedUser.email && phone === storedUser.phone) {
+                alert("Login successful! Redirecting to the appointment page.");
+
+                // Mark user as logged in
+                localStorage.setItem("userLoggedIn", "true");
+
+                window.location.href = "patientappoint.html"; // Redirect to appointment page
+                return false;
+            } else {
+                alert("Invalid credentials! Please check your details or sign up.");
+                return false;
+            }
+        }
+
+        // Prevent direct access to login page without signing up
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!localStorage.getItem("registeredUser")) {
+                alert("You must sign up before logging in.");
+                window.location.href = "patient-signup.html";
+            }
+        });
+    </script>
+</body>
+</html>

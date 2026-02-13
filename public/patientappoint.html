@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediNavigator - Patient Dashboard</title>
+    <script defer src="app.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background-color: #1e1e1e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 750px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form button,
+        form select {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background-color: #2c2c2c;
+            color: #ffffff;
+        }
+
+        form button {
+            border: none;
+            background-color: #6200ea;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #3700b3;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        form input::placeholder {
+            color: #999;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #1e1e1e; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);">
+        <h1 style="margin: 0; color: #ffffff;">MediNavigator</h1>
+        <nav>
+            <ul>
+                <li><a href="#welcome">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="patient-history.html">Patient History</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Patient Registration Form</h1>
+
+    <!-- Patient Registration Form -->
+    <div class="container">
+        <div class="form-container">
+            <h2>Add Data</h2>
+            <form id="dataForm">
+                <label for="nameInput">Name:</label>
+                <input type="text" id="nameInput" placeholder="Name" required>
+
+                <label for="dobInput">Date of Birth:</label>
+                <input type="date" id="dobInput" required>
+
+                <label for="genderInput">Gender:</label>
+                <select id="genderInput" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label for="emailInput">Email:</label>
+                <input type="email" id="emailInput" placeholder="Email" required>
+
+                <label for="ageInput">Age:</label>
+                <input type="number" id="ageInput" placeholder="Age" required>
+
+                <label for="bloodgroupInput">Blood Group:</label>
+                <select id="bloodgroupInput" required>
+                    <option value="">Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+
+                <label for="heightInput">Height:</label>
+                <input type="number" id="heightInput" placeholder="Height (cm)" required>
+
+                <label for="weightInput">Weight:</label>
+                <input type="number" id="weightInput" placeholder="Weight (kg)" required>
+
+                <label for="patientContactInput">Patient Contact Number:</label>
+                <input type="tel" id="patientContactInput" placeholder="Contact Number" required>
+
+                <label for="emergencyContactInput">Emergency Contact:</label>
+                <input type="tel" id="emergencyContactInput" placeholder="Emergency Contact" required>
+
+                <label for="wardNumberInput">Ward Number:</label>
+                <input type="text" id="wardNumberInput" placeholder="Ward Number" required>
+
+                <label for="medicalHistoryInput">Medical History:</label>
+                <input type="text" id="medicalHistoryInput" placeholder="Medical History">
+
+                <label for="imageInput">Upload Image:</label>
+                <input type="file" id="imageInput">
+
+                <button type="submit">Add Data</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Patient Dashboard -->
+    <div class="container">
+        <div class="form-container">
+            <h2>Patient Dashboard</h2>
+            <p>Welcome! You are now logged in.</p>
+
+            <!-- Appointment Booking Section -->
+            <h3>Book an Appointment</h3>
+
+            <label for="appointment-date">Select Date:</label>
+            <input type="date" id="appointment-date" required>
+
+            <label for="time-slot">Select Time Slot:</label>
+            <select id="time-slot" required>
+                <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
+                <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+            </select>
+
+            <button id="book-appointment">Book Appointment</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("book-appointment").addEventListener("click", function () {
+            const date = document.getElementById("appointment-date").value;
+            const time = document.getElementById("time-slot").value;
+
+            if (date && time) {
+                alert(`Appointment booked for ${date} at ${time}`);
+            } else {
+                alert("Please select a date and time.");
+            }
+        });
+    </script>
+</body>
+
+</html>

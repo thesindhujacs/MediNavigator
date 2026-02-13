@@ -1,0 +1,40 @@
+/* Feature Section */
+.feature-section {
+    padding: 50px 20px;
+    background-color: #1e1e1e;
+}
+
+.features-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.feature {
+    width: 30%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* .feature img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.feature h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.feature p {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.feature.visible {
+    opacity: 1;
+    transform: translateY(0);
+} */
